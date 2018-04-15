@@ -37,7 +37,7 @@ my_db_config/
 !main.pyc
 ```
 
-## 3.  Ai đã làm rối ocde của tôi?
+## 3.  Ai đã làm rối code của tôi?
 
 Bản năng tự nhiên của con người là trách móc người khác khi có gì đó bị sai. Nếu server đang chạy của bạn hỏng, sẽ rất dễ dàng để tìm ra thủ phạm - chỉ cần thực hiện ```git blame```. Câu lệnh này sẽ cho bạn thấy tác giả của mỗi dòng trong một file, commit thực hiện thay đổi cuối cùng của dòng đó, và mốc thời gian của commit. 
 
@@ -62,7 +62,7 @@ Hay xem qua cách sử dụng của ```git log``` trong bài hướng dẫn trư
 Ví dụ khi kết hợp các lựa chọn:
 ![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946444git-ninja-03.png)
 
-## 5. Không bao giờ theo dõii sót commit nào
+## 5. Không bao giờ theo dõi sót commit nào
 
 Ví dụ bạn đã commit cái gì đó mà bạn không muốn và cuối cùng bạn thực hiện việc hard reset để quay trở lại trạng thái trước đó. Sau đó, bạn nhận ra bạn đã bỏ sót vài thông tin khác trong tiến trình và muốn lấy nó lại, hay ít nhất là xem nó. Đây là lúc ```git reflog``` có thể giúp bạn.
 
@@ -76,7 +76,7 @@ Tuy nhiên, một ```git reflog``` hiển thị 1 commit (```b1b0ee9 - HEAD@{4}`
 
 ![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946447git-ninja-05.png)
 
-##6. Stage các phần của các file thay đổi cho Commit 
+## 6. Stage các phần của các file thay đổi cho Commit 
 
 Đây nhìn chung là cách làm tốt để tạo các commit hướng chức năng, trong đó, mỗi commit phải đại diện cho một tính năng hoặc một việc sửa lỗi. Tưởng tượng điều gì sẽ xảy ra nếu bạn sửa hai lỗi, hoặc thêm nhiều tính năng mà không commit sự thay đổi. Trong trường hợp này, bạn có thể để các sự thay đổi trong 1 commit đơn lẻ. Nhưng có một cách khác tốt hơn: stage các file riêng lẻ và commit chúng lần lượt.
 
@@ -142,9 +142,7 @@ git stash
 Để check danh sách các stash, bạn có thể chạy lệnh sau:
 
 ```
-
 git stash list
-
 ```
 
 ![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946458git-ninja-12.png)
