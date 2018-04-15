@@ -205,7 +205,7 @@ git cherry-pick [commit_hash]
 
 ```
 
-!(https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946467git-ninja-16.png)
+![abc](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946467git-ninja-16.png)
 
 Mặc dù lần này tôi đã dọn ```cherry-pick```, bạn nên biết rằng cây lệnh này thường dẫn tới các xung đột, vì vậy sử dụng nó cẩn thận.
 
