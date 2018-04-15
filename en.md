@@ -1,4 +1,4 @@
-#10 Tips to Push Your Git Skills to the Next Level
+# 10 Tips to Push Your Git Skills to the Next Level
 
 Recently we published a couple of tutorials to get you familiar with Git basics and using Git in a team environment. The commands that we discussed were about enough to help a developer survive in the Git world. In this post, we will try to explore how to manage your time effectively and make full use of the features that Git provides.
 
