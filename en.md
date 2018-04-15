@@ -1,10 +1,18 @@
+<<<<<<< HEAD
 # 10 Tips to Push Your Git Skills to the Next Level
+=======
+# 10 lời khuyên giúp nâng các kĩ năng git của bạn lên tầm cao mới
+>>>>>>> b6349d4d5ed1a91f088ae5f30b9c90ab1c9effd7
 
 Recently we published a couple of tutorials to get you familiar with Git basics and using Git in a team environment. The commands that we discussed were about enough to help a developer survive in the Git world. In this post, we will try to explore how to manage your time effectively and make full use of the features that Git provides.
 
 Note: Some commands in this article include part of the command in square brackets (e.g. git add -p [file_name]). In those examples, you would insert the necessary number, identifier, etc. without the square brackets.
 
+<<<<<<< HEAD
 ## 1. Git Auto Completion
+=======
+## 1. Git tự hoàn thiện
+>>>>>>> b6349d4d5ed1a91f088ae5f30b9c90ab1c9effd7
 
 If you run Git commands through the command line, it’s a tiresome task to type in the commands manually every single time. To help with this, you can enable auto completion of Git commands within a few minutes.
 
@@ -25,7 +33,11 @@ fi
 
 Although I have mentioned this earlier, I can not stress it enough: If you want to use the features of Git fully, you should definitely shift to the command line interface!
 
+<<<<<<< HEAD
 ## 2. Ignoring Files in Git
+=======
+## 2. Loại bỏ các file trong Git
+>>>>>>> b6349d4d5ed1a91f088ae5f30b9c90ab1c9effd7
 
 Are you tired of compiled files (like ```.pyc```) appearing in your Git repository? Or are you so fed up that you have added them to Git? Look no further, there is a way through which you can tell Git to ignore certain files and directories altogether. Simply create a file with the name ```.gitignore``` and list the files and directories that you don’t want Git to track. You can make exceptions using the exclamation mark(!).
 
@@ -37,7 +49,11 @@ my_db_config/
 !main.pyc
 ```
 
+<<<<<<< HEAD
 ## 3. Who Messed With My Code?
+=======
+## 3.  Ai đã làm rỗi code của tôi?
+>>>>>>> b6349d4d5ed1a91f088ae5f30b9c90ab1c9effd7
 
 It’s the natural instinct of human beings to blame others when something goes wrong. If your production server is broke, it’s very easy to find out the culprit — just do a ```git blame```. This command shows you the author of every line in a file, the commit that saw the last change in that line, and the timestamp of the commit.
 
@@ -52,7 +68,11 @@ And in the screenshot below, you can see how this command would look on a bigger
 
 ![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946441git-ninja-02.png)
 
+<<<<<<< HEAD
 ## 4. Review History of the Repository
+=======
+## 4. Xem lại lịch sử của Repository
+>>>>>>> b6349d4d5ed1a91f088ae5f30b9c90ab1c9effd7
 
 We had a look at the use of ```git log``` in a previous tutorial, however, there are three options that you should know about.
 
@@ -62,7 +82,11 @@ We had a look at the use of ```git log``` in a previous tutorial, however, there
 
 Here’s what a combination of the options looks like:
 
+<<<<<<< HEAD
 ![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946444git-ninja-03.png)
+=======
+## 5. Không bao giờ theo dỗi sót 1 commit
+>>>>>>> b6349d4d5ed1a91f088ae5f30b9c90ab1c9effd7
 
 ## 5. Never Lose Track of a Commit
 
@@ -114,7 +138,11 @@ As you can see, we have added the first and third lines and ignored the second. 
 
 ![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946454git-ninja-09.png)
 
+<<<<<<< HEAD
 ## 7. Squash Multiple Commits
+=======
+## 7. Ép nhiều commit
+>>>>>>> b6349d4d5ed1a91f088ae5f30b9c90ab1c9effd7
 
 When you submit your code for review and create a pull request (which happens often in open source projects), you might be asked to make a change to your code before it’s accepted. You make the change, only to be asked to change it yet again in the next review. Before you know it, you have a few extra commits. Ideally, you could squash them into one using the ```rebase``` command.
 
@@ -140,7 +168,11 @@ You are then asked to provide a commit message to the new commit. This process e
 
 ![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946457git-ninja-11.png)
 
+<<<<<<< HEAD
 ## 8. Stash Uncommitted Changes
+=======
+## 8. Cất những thay đổi chưa được commit
+>>>>>>> b6349d4d5ed1a91f088ae5f30b9c90ab1c9effd7
 
 Let’s say you are working on a certain bug or a feature, and you are suddenly asked to demonstrate your work. Your current work is not complete enough to be committed, and you can’t give a demonstration at this stage (without reverting the changes). In such a situation, ```git stash``` comes to the rescue. Stash essentially takes all your changes and stores them for further use. To stash your changes, you simply run the following-
 
@@ -179,7 +211,11 @@ git stash apply stash@{2}
 ![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946461git-ninja-13.png)
 
 
+<<<<<<< HEAD
 ## 9. Check for Lost Commits
+=======
+## 9. Kiểm tra những commit bị mất
+>>>>>>> b6349d4d5ed1a91f088ae5f30b9c90ab1c9effd7
 
 Although ```reflog``` is one way of checking for lost commits, it’s not feasible in large repositories. That is when the ```fsck``` (file system check) command comes into play.
 
@@ -195,6 +231,10 @@ Here you can see a lost commit. You can check the changes in the commit by runni
 
 ```git fsck``` has an advantage over ```reflog```. Let’s say you deleted a remote branch and then cloned the repository. With ```fsck``` you can search for and recover the deleted remote branch.
 
+<<<<<<< HEAD
+=======
+## 10. Cherry Pick
+>>>>>>> b6349d4d5ed1a91f088ae5f30b9c90ab1c9effd7
 
 ## 10. Cherry Pick
 
@@ -210,7 +250,17 @@ I switch to the branch into which I want to ```cherry-pick``` the commit, and ru
 
 ```
 
+<<<<<<< HEAD
 git cherry-pick [commit_hash]
+=======
+![abc](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946467git-ninja-16.png)
+
+Mặc dù lần này tôi đã dọn ```cherry-pick```, bạn nên biết rằng cây lệnh này thường dẫn tới các xung đột, vì vậy sử dụng nó cẩn thận.
+
+## Kết luận
+
+Với những điều này, chúng tôi đi đến kết luận của danh sách các lời khuyên của chúng tôi mà tôi nghĩ rằng có thể giúp bạn nâng tầm các kĩ năng Git của ban. Git là thứ tốt nhất ngoài đó và nó có thể  hoàn thành bất cứ thứ gì mà bạn có thể tưởng tượng. Vìì thế, hãy luốn cố gắng thách thức bản thân với Git. Cơ hội đến, bạn sẽ có thể học được điều gì đó mới mẻ!
+>>>>>>> b6349d4d5ed1a91f088ae5f30b9c90ab1c9effd7
 
 ```
 
