@@ -205,11 +205,11 @@ git cherry-pick [commit_hash]
 
 ```
 
-![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946467git-ninja-16.png)
+!(https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946467git-ninja-16.png)
 
 Mặc dù lần này tôi đã dọn ```cherry-pick```, bạn nên biết rằng cây lệnh này thường dẫn tới các xung đột, vì vậy sử dụng nó cẩn thận.
 
-##Kết luận
+## Kết luận
 
 Với những điều này, chúng tôi đi đến kết luận của danh sách các lời khuyên của chúng tôi mà tôi nghĩ rằng có thể giúp bạn nâng tầm các kĩ năng Git của ban. Git là thứ tốt nhất ngoài đó và nó có thể  hoàn thành bất cứ thứ gì mà bạn có thể tưởng tượng. Vìì thế, hãy luốn cố gắng thách thức bản thân với Git. Cơ hội đến, bạn sẽ có thể học được điều gì đó mới mẻ!
 
