@@ -1,21 +1,21 @@
-#10 lời khuyên giúp nâng các kĩ năng git của bạn lên tầm cao mới
+# 10 Tips to Push Your Git Skills to the Next Level
 
-Gần đây, chúng tôi đã phát hành 1 vài hướng dẫn nhằm giúp bạn làm quen với Git cơ bản và sử dụng Git trong môi trường nhóm. Các câu lệnh mà chúng tôi thảo luận khá là đủ để giúp 1 người phát triển sống sốt trong thế giới Git. Trong bài đăng này, chúng tôi sẽ cố tìm hiểu làm cách nào để quản lý thời gian của bạn 1 cách hiệu quả và sử dụng đầy đủ các tính nắng mà Git cung cấp.
+Recently we published a couple of tutorials to get you familiar with Git basics and using Git in a team environment. The commands that we discussed were about enough to help a developer survive in the Git world. In this post, we will try to explore how to manage your time effectively and make full use of the features that Git provides.
 
-Lưu ý: 1 vài câu lệnh trong bài viết này bao gồm 1 phần của câu lệnh nằm trong ngoặc vuông ( ví dụ git add -p [file_name]). Trong những ví dụ đó, bạn sẽ thêm các số, định danh cần thiết, vân vân mà không có ngoặc vuông.
+Note: Some commands in this article include part of the command in square brackets (e.g. git add -p [file_name]). In those examples, you would insert the necessary number, identifier, etc. without the square brackets.
 
-##1. Git tự hoàn thiện
+## 1. Git Auto Completion
 
-Nếu bạn chạy các câu lệnh Git qua command line, sẽ là 1 công việc mệt mỏi mỗi lần gõ các câu lệnh bằng tay. Để giúp bạn với điều này, bạn có thể bật chức năng tự hoàn thiện của câu lệnh Git trong vài phút.
+If you run Git commands through the command line, it’s a tiresome task to type in the commands manually every single time. To help with this, you can enable auto completion of Git commands within a few minutes.
 
-Để lấy script, chạy lệnh sau trong hệ thống Unix:
+To get the script, run the following in a Unix system:
 
 ```
 cd ~
 curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 ```
 
-Tiếp đó thêm dòng này vào file ```~/.bash_profile``` của bạn:
+Next, add the following lines to your ```~/.bash_profile``` file:
 
 ```
 if [ -f ~/.git-completion.bash ]; then
@@ -23,11 +23,11 @@ if [ -f ~/.git-completion.bash ]; then
 fi
 ```
 
-Mặc dù tôi đã đề cập đến điều này trước đây, tôi đã không thể nhấn mạnh đủ. Nếu bạn muốn sử dụng tính năng này của Git 1 cách đầy đủ, bạn nên định nghĩa sự thay đổi cho giao diện command line.
+Although I have mentioned this earlier, I can not stress it enough: If you want to use the features of Git fully, you should definitely shift to the command line interface!
 
-##2. Loại bỏ các file trong Git
+## 2. Ignoring Files in Git
 
-Bạn có cảm thấy mệt mỏi khi biên dịch các file (như ```.pyc```) xuất hiện trong repository Git của bạn? Hay bạn cảm thấy chán ngấy rằng bạn đã thêm cho cho Git? Không cần nhìn đâu xa, có 1 cách mà qua đó bạn có thể bảo Git loại bỏ những file cũng như thư mục cụ thể. Chỉ cần đơn giản tạo 1 file với tên ```.gitignore``` và liệt kệ các file và thử mục bạn không muốn Git theo dỗi. Bạn có thể tạo những ngoại lệ sử dung dấu chấm than (!).
+Are you tired of compiled files (like ```.pyc```) appearing in your Git repository? Or are you so fed up that you have added them to Git? Look no further, there is a way through which you can tell Git to ignore certain files and directories altogether. Simply create a file with the name ```.gitignore``` and list the files and directories that you don’t want Git to track. You can make exceptions using the exclamation mark(!).
 
 ```
 *.pyc
@@ -37,83 +37,86 @@ my_db_config/
 !main.pyc
 ```
 
-##3.  Ai đã làm rỗi code của tôi?
+## 3. Who Messed With My Code?
 
-Đấy là bản năng tự nhiên của con người khi trách móc người khác khi có gì đó bị sai. Nếu server sản xuất của bạn hỏng, sẽ rất dễ để tìm ra thủ phạm - chỉ cần thực hiện ```git blame```. Câu lệnh này sẽ cho bạn thấy tác giả của mỗi dòng trong 1 file, commit thực hiện thay đổi cuối cùng của dòng đó, và mốc thời gian của commit. 
+It’s the natural instinct of human beings to blame others when something goes wrong. If your production server is broke, it’s very easy to find out the culprit — just do a ```git blame```. This command shows you the author of every line in a file, the commit that saw the last change in that line, and the timestamp of the commit.
 
 ```
 git blame [file_name]
 
 ```
 
-![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946443git-ninja-01.png)
+![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946443git-ninja-01.png)
 
-và như chụp màn hình dưới đây, bạn có thể thấy cách mà câu lệnh này theo dôi 1 repository lớn hơn
+And in the screenshot below, you can see how this command would look on a bigger repository:
 
-![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946441git-ninja-02.png)
+![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946441git-ninja-02.png)
 
-##4. Xem lại lịch sử của Repository
+## 4. Review History of the Repository
 
-Hay xem qua cách sử dụng của ```git log``` trong bài hướng dẫn trước đây, truy nhiên, có 3 lựa chọn mà bạn nên biết.
+We had a look at the use of ```git log``` in a previous tutorial, however, there are three options that you should know about.
 
-* ```--oneline``` – Nén thống tin hiện thỉ bên cạnh mỗi commit thành các commit hash giảm thiểu và các thông điệp commit, tất cả được hiển thị trong 1 dòng đơn
-* ```--graph``` –  Lựa chọn này vẽ 1 miêu tả đồ thị dựa trên văn bản về lịch sử trên phía tay trái của đầu ra. Nó sẽ vỗ nghĩa nếu bạn đang xem lịch sử cho 1 nhánh đơn
-* ```--all``` – Hiển thị lịch sử của tất cả các nhánh
+* ```--oneline``` – Compresses the information shown beside each commit to a reduced commit hash and the commit message, all shown in a single line.
+* ```--graph``` – This option draws a text-based graphical representation of the history on the left hand side of the output. It’s of no use if you are viewing the history for a single branch.
+* ```--all``` – Shows the history of all branches.
 
-Đấy khi kết hợp các lựa chọn thì nó trông thế này:
-![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946444git-ninja-03.png)
+Here’s what a combination of the options looks like:
 
-##5. Không bao giờ theo dỗi sót 1 commit
+![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946444git-ninja-03.png)
 
-Hãy nói rằng bạn đã commit cái gì đó mà bạn không muốn và kết thúc bằng việc thực hiện hard reset để quay trở lại trạng thái trướcước. Gần đây, bạn nhận ra bạn đã sót vài thông tin khác trong tiến trình và muốn lấy nó lại, hay ít nhất là xem nó. Đây là lúc ```git reflog``` có thể giúp bạn.
+## 5. Never Lose Track of a Commit
 
-```git log`` đơn giản cho bạn biết commit cuối cuối, cha của nó, cha của cha nó, và vân vân. Tuy nhiên, ```git reflog``` là 1 danh sách các commit mà head đã trỏ tới. Hãy nhớ rằng nó cục bộ với hệ thống của bạn, nó không phải là 1 phần của repository của bạn và không bao gồm các push hay merge.
+Let’s say you committed something you didn’t want to and ended up doing a hard reset to come back to your previous state. Later, you realize you lost some other information in the process and want to get it back, or at least view it. This is where ```git reflog``` can help.
 
-Nếu tôi chạy ```git log```, tôi sẽ lấy được các commit là 1 phần của repository của tôi
+A simple ```git log``` shows you the latest commit, its parent, its parent’s parent, and so on. However, ```git reflog``` is a list of commits that the head was pointed to. Remember that it’s local to your system; it’s not a part of your repository and not included in pushes or merges.
 
-![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946446git-ninja-04.png)
+If I run ```git log```, I get the commits that are a part of my repository:
 
-Tuy nhiên, 1 ```git reflog``` hiển thị 1 commit (```b1b0ee9 - HEAD@{4}```) mà bị mất khi bạn thực hiện 1 hard reset.
+![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946446git-ninja-04.png)
 
-![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946447git-ninja-05.png)
+However, a ```git reflog``` shows a commit (```b1b0ee9 – HEAD@{4}```) that was lost when I did a hard reset:
 
-##6. Stage 1 phần của các file thay đổi cho Commit 
+![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946447git-ninja-05.png)
 
-Đây nhìn chung là cách làm tốt để tạo các commit hướng chức năng, trong đó, mỗi commit phải đại diện cho 1 tính năng hoặc 1 sửa lỗi. Tưởng tượng cái gì sẽ xảy ra nếu bạn sửa 2 lỗi, hoặc thêm nhiều tính năng mà không commit sự thay đổi. Trong trường hợp này, bạn có thể để các sự thay đổi trong 1 commit đơn le. Nhưng có 1 cách khác tốt hơn: stage các file riêng lẻ và commit chúng lần lượt.
+## 6. Staging Parts of a Changed File for a Commit
 
-Hãy nói rằng bạn đã tạo nhiều thay đổi cho 1 file đơn lẻ và muốn chúng xuất hiện trong các commit riêng. Trong trường hợp này, chúng tôi sẽ thêm các file với tiền tố ```-p``` đến câu lệnh add của chúng tôi.
- 
+It is generally a good practice to make feature-based commits, that is, each commit must represent a feature or a bug fix. Consider what would happen if you fixed two bugs, or added multiple features without committing the changes. In such a situation situation, you could put the changes in a single commit. But there is a better way: Stage the files individually and commit them separately.
+
+Let’s say you’ve made multiple changes to a single file and want them to appear in separate commits. In that case, we add files by prefixing ```-p``` to our add commands.
+
 ```
 
 git add -p [file_name]
 
 ```
 
-Hãy cố gắng mô tả điều tương tự. Tôi đã thêm 3 dòng mới cho ```file_name``` và tôi chỉ muốn dòng thứ nhất và thứ ba xuất hiện trong commit của tôi. Hay xem những gì ```git diff``` hiện thị cho chúng ta.
+Let’s try to demonstrate the same. I have added three new lines to ```file_name``` and I want only the first and third lines to appear in my commit. Let’s see what a ```git diff``` shows us.
 
-![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946449git-ninja-06.png)
+![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946449git-ninja-06.png)
 
-Và hãy xem điều gì xảy ra khi chúng ta thềm tiền tố ```-p``` cho câu lệnh ```add``` của chúng ta.
-![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946450git-ninja-07.png)
+And let’s see what happes when we prefix a ```-p``` to our ```add``` command.
 
-Trông như rằng Git giả định rằng tất cả sự thay đổi là 1 phần của ý tưởng tương tự, vì thế nhóm chúng vào nhóm lớn đơn lẻ. Bạn có những lựa chọn sau đây:
+![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946450git-ninja-07.png)
 
-* Gõ y để stage nhóm đó
-* Gõ n để không stage nhóm đó
-* Gõ e để sửa nhóm đó thủ công
-* Gõ đ để thoát và đến file tiếp theo
-* Gõ s đẻ chia nhỏ nhóm
+It seems that Git assumed that all the changes were a part of the same idea, thereby grouping it into a single hunk. You have the following options:
 
-Trong trường hợp của chúng tôi, chúng tôi chắc chắn muốn chia nó thành các phần nhỏ hơn để thêm 1 cách có lựa chọn 1 vài chỗ và loại bỏ phần còn lịa. 
-![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946452git-ninja-08.png)
+* Enter y to stage that hunk
+* Enter n to not stage that hunk
+* Enter e to manually edit the hunk
+* Enter d to exit or go to the next file.
+* Enter s to split the hunk.
 
-Như bạn có thể thấy, chúng tôi phỉa thêm dòng đầu và dòng thử 3 và loại bỏ dòng thứ 2. Bạn có thể sau đó xem trạng thái của repository và tạo 1 commit.
+In our case, we definitely want to split it into smaller parts to selectively add some and ignore the rest.
 
-![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946454git-ninja-09.png)
+![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946452git-ninja-08.png)
 
-##7. Ép nhiều commit
+As you can see, we have added the first and third lines and ignored the second. You can then view the status of the repository and make a commit.
 
-Khi bạn gửi code của bạn để xem lại và tạo 1 pull request( thử xảy ra thường xuyên trong các dự án open source), ạnạn có thể sẽ được yêu cầu để tạo 1 thay đổi cho code của bạn trước khi nó được chấp nhaank. Bạn tạo sự thay đổi, chỉ khi được yêu cầu thay đổi nó 1 lần nữa trong lần xem lại tiếp theo. Trước khi bạn biết nó, bạn có vài commit thêm. Lý tưởng nhất là bạn có thể ép chúng lại làm 1 sử dụng câu lệnh ```rebase```.
+![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946454git-ninja-09.png)
+
+## 7. Squash Multiple Commits
+
+When you submit your code for review and create a pull request (which happens often in open source projects), you might be asked to make a change to your code before it’s accepted. You make the change, only to be asked to change it yet again in the next review. Before you know it, you have a few extra commits. Ideally, you could squash them into one using the ```rebase``` command.
 
 ```
 
@@ -121,23 +124,25 @@ git rebase -i HEAD~[number_of_commits]
 
 ```
 
-Nếu bạn muốn ép 2 commit cuối, câu lệnh bạn chạy như sau:
+If you want to squash the last two commits, the command that you run is the following.
+
 ```
 
 git rebase -i HEAD~2
 
 ```
 
-Khi chạy câu lệnh này, bạn sẽ được dẫn tới 1 giao diện tương tác liệt kê các commit và hỏi bạn cái nào để ép. Lý tưởng nhất là bạn ``` chọn``` commit cuối cùng và ``` ép ``` với các cái cũ.
+On running this command, you are taken to an interactive interface listing the commits and asking you which ones to squash. Ideally, you ```pick``` the latest commit and ```squash``` the old ones.
 
-![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946455git-ninja-10.png)
+![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946455git-ninja-10.png)
 
-Sau đó bạn sẽ được gỏi cung cấp thông điệp commit cho commit mới. Tiến trình này về bản chất sẽ ghi lại lịch sử commit.
-![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946457git-ninja-11.png)
+You are then asked to provide a commit message to the new commit. This process essentially re-writes your commit history.
 
-##8. Cất những thay đổi chưa được commit
+![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946457git-ninja-11.png)
 
-Hãy nói rằng bạn đang làm việc trên 1 tính năng hay 1 lỗi cụ thể, và bạn bỗng nhiên được yêu cầu mô tả công việc của bạn. Công việc hiện tại của bạn không hoàn thiện đủ để được commit, và bạn không thể đưa ra nhưng mô tả tại stage này( mà không trở về các thay đổi). Trong trường hợp này, ```git stash``` tới để giải cứu bạn. Stash bản chất lấy tất cả các thay đổi của bạn và lưu trữ chúng để sử dụng sau này. Để cất những thay đổi của bạn, bạn chỉ đơn giản chạy lệnh sau.
+## 8. Stash Uncommitted Changes
+
+Let’s say you are working on a certain bug or a feature, and you are suddenly asked to demonstrate your work. Your current work is not complete enough to be committed, and you can’t give a demonstration at this stage (without reverting the changes). In such a situation, ```git stash``` comes to the rescue. Stash essentially takes all your changes and stores them for further use. To stash your changes, you simply run the following-
 
 ```
 
@@ -145,7 +150,7 @@ git stash
 
 ```
 
-Để check danh sách các stash, bạn có thể chạy lệnh sau:
+To check the list of stashes, you can run the following:
 
 ```
 
@@ -153,28 +158,30 @@ git stash list
 
 ```
 
-![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946458git-ninja-12.png)
+![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946458git-ninja-12.png)
 
-Nếu bạn muốn bỏ cất và khôi phục nhưng thay đổi những thay đổi chưa commit, bạn gọi stash:
+If you want to un-stash and recover the uncommitted changes, you apply the stash:
+
 ```
 
 git stash apply
 
 ```
 
-Trong màn hình chụp cuối cùng, bạn có thể thấy rằng mỗi stash có 1 định danh, 1 số duy nhất (mặc dù chúng tôichỉ có duy nhất 1 stash trong trường hợp này). Trong trường hợp bạn muốn gọi chỉ duy nhất stash được chọn., bạn thêm định đặc tả cho câu lệnh ```apply```
+In the last screenshot, you can see that each stash has an indentifier, a unique number (although we have only one stash in this case). In case you want to apply only selective stashes, you add the specific identifier to the ```apply``` command:
+
 ```
 
 git stash apply stash@{2}
 
 ```
 
-![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946461git-ninja-13.png)
+![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946461git-ninja-13.png)
 
 
-##9. Kiểm tra những commit bị mất
+## 9. Check for Lost Commits
 
-Mặc dù ```reflog``` là 1 cách để kiểm tra các commit bị mất, nó không tiện trong các repository lớn. Đó là khi câu lệnh ```fsck``` (kiểm tra hệ thống file) vào cuộc
+Although ```reflog``` is one way of checking for lost commits, it’s not feasible in large repositories. That is when the ```fsck``` (file system check) command comes into play.
 
 ```
 
@@ -182,38 +189,35 @@ git fsck --lost-found
 
 ```
 
-![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946463git-ninja-14.png)
+![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946463git-ninja-14.png)
 
-Ở đây bạn có thể thấy các commit bị mất. Bạn có thể kiểm tra các thay đổi trong commit bằng cách chạy ```git show [commit_hash]``` hoặc khôi phục nó bằng cách chạy ```git merge [commit_hash]```.
-```git fsck``` có 1 lợi thế hơn ```reflog```. Hãy nói rằng bạn đã xóa 1 branch remote và sau đó clone repository. Với ```fsck``` bạn có thể tìm kiếm và khôi phục các nhánh remote bị xóa.
+Here you can see a lost commit. You can check the changes in the commit by running ```git show [commit_hash]``` or recover it by running ```git merge [commit_hash]```.
 
-
-##10. Cherry Pick
-
-Cuối cùng tôi đã lưu lại các câu lệnh Git tao nhã nhất. Câu lệnh ```cherry-pick` là câu lệnh Git ưa thích nhất của tôi, bởi vì ý nghĩa thực cũng như tính hữu dụng của nó!
-
-Với những giới hạn đơn giản nhất, ```cherry-pick``` sẽ chọn 1 commit đơn lẻ từ các nhánh khác nhau và hợp chúng với cái hiện tại. Nếu bạn đang làm việc theo cách song sóng trên 2 hay nhiều hơn nhánh, bạn có thể chú ý 1 lỗi mà xuất hiện ở tất cả các nhánh. Nếu bạn giải quyết nó trong 1, bạn có thể cherry pick commit đến cácnhánh khác, mà không làm rỗi loạn với các file hay commit khác
+```git fsck``` has an advantage over ```reflog```. Let’s say you deleted a remote branch and then cloned the repository. With ```fsck``` you can search for and recover the deleted remote branch.
 
 
-Hãy hình dung 1 kịch bản khi bạn có thể gọi nó. Tôi có 2 nhánh và tôi muốn ```cherry-pick``` commi ts```b20fd14: Cleaned junk``` đến 1 nhánh khác
-![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946465git-ninja-15.png)
+## 10. Cherry Pick
 
-Tôi chuyển tới nhánh tới nhánh tôi muốn ```cherry-pick``` commit, và chạy lệnh sau
+I have saved the most elegant Git command for the last. The ```cherry-pick``` command is by far my favorite Git command, because of its literal meaning as well as its utility!
+
+In the simplest of terms, ```cherry-pick``` is picking a single commit from a different branch and merging it with your current one. If you are working in a parallel fashion on two or more branches, you might notice a bug that is present in all branches. If you solve it in one, you can cherry pick the commit into the other branches, without messing with other files or commits.
+
+Let’s consider a scenario where we can apply this. I have two branches and I want to ```cherry-pick``` the commit ```b20fd14: Cleaned junk``` into another one.
+
+![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946465git-ninja-15.png)
+
+I switch to the branch into which I want to ```cherry-pick``` the commit, and run the following:
+
 ```
 
 git cherry-pick [commit_hash]
 
 ```
 
-![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946467git-ninja-16.png)
+![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946467git-ninja-16.png)
 
-Mặc dù lần này tôi đã dọn ```cherry-pick```, bạn nên biết rằng cây lệnh này thường dẫn tới các xung đột, vì vậy sử dụng nó cẩn thận.
+Although we had a clean ```cherry-pick``` this time, you should know that this command can often lead to conflicts, so use it with care.
 
-##Kết luận
+## Conclusion
 
-Với những điều này, chúng tôi đi đến kết luận của danh sách các lời khuyên của chúng tôi mà tôi nghĩ rằng có thể giúp bạn nâng tầm các kĩ năng Git của ban. Git là thứ tốt nhất ngoài đó và nó có thể  hoàn thành bất cứ thứ gì mà bạn có thể tưởng tượng. Vìì thế, hãy luốn cố gắng thách thức bản thân với Git. Cơ hội đến, bạn sẽ có thể học được điều gì đó mới mẻ!
-
-
-
-
-
+With this, we come to the end of our list of tips that I think can help you take your Git skills to a new level. Git is the best out there and it can accomplish anything you can imagine. Therefore, always try to challenge yourself with Git. Chances are, you will end up learning something new!
