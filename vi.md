@@ -4,9 +4,9 @@ Gần đây, chúng tôi đã phát hành một vài bài hướng dẫn nhằm 
 
 Lưu ý: Một vài câu lệnh trong bài viết này bao gồm một phần của câu lệnh nằm trong ngoặc vuông ( ví dụ git add -p [file_name]). Trong những ví dụ đó, bạn sẽ thêm các số, định danh cần thiết, ... mà bỏ qua dấu ngoặc vuông.
 
-## 1. Git tự hoàn thiện
+## 1. Tự động hoàn thành Git
 
-Nếu bạn chạy các câu lệnh Git qua command line, đó sẽ là một công việc mệt mỏi khi mỗi lần đều phải gõ các câu lệnh bằng tay. Để giúp bạn với điều này, bạn có thể bật chức năng tự hoàn thiện của câu lệnh Git trong vài phút.
+Nếu bạn chạy các câu lệnh Git qua command line, đó sẽ là một công việc mệt mỏi khi mỗi lần đều phải gõ các câu lệnh bằng tay. Để giúp bạn với điều này, bạn có thể bật chức năng tự hoàn thành của câu lệnh Git trong vài phút.
 
 Để lấy script, chạy lệnh sau trong hệ thống Unix:
 
@@ -25,7 +25,7 @@ fi
 
 Mặc dù tôi đã đề cập đến điều này trước đây, tôi vẫn phải nhắc lại rằng: Nếu bạn muốn sử dụng các tính năng của Git một cách đầy đủ, bạn nên chuyển sang sử dụng giao diện trên command line.
 
-## 2. Loại bỏ các file trong Git
+## 2. Bỏ qua các file trong Git
 
 Bạn có cảm thấy mệt mỏi khi các file biên dịch (như ```.pyc```) xuất hiện trong repository Git của bạn? Hay bạn cảm thấy chán ngấy rằng bạn đã thêm chúng vào Git? Không cần nhìn đâu xa, có một cách mà qua đó bạn có thể bảo Git loại bỏ những file cũng như các thư mục mà ta mong muốn. Chỉ cần đơn giản tạo 1 file với tên ```.gitignore``` và liệt kệ các file và thử mục bạn không muốn Git theo dõi. Bạn có thể tạo những ngoại lệ bằng cách sử dung dấu chấm than (!).
 
@@ -55,7 +55,7 @@ và như ảnh chụp màn hình dưới đây, bạn có thể thấy cách mà
 
 Hay xem qua cách sử dụng của ```git log``` trong bài hướng dẫn trước đây, truy nhiên, có 3 lựa chọn mà bạn nên biết.
 
-* ```--oneline``` – Nén thống tin hiện thỉ bên cạnh mỗi commit thành các commit hash giảm thiểu và các thông điệp commit, tất cả được hiển thị trong một dòng đơn.
+* ```--oneline``` – Nén thông tin hiện thị bên cạnh mỗi commit thành một mã commit hash đã được tối giản và các thông điệp commit, tất cả được hiển thị trong một dòng đơn.
 * ```--graph``` –  Lựa chọn này vẽ một miêu tả đồ thị dựa trên văn bản về lịch sử trên phía tay trái của đầu ra. Nó sẽ vỗ nghĩa nếu bạn đang xem lịch sử cho một nhánh đơn.
 * ```--all``` – Hiển thị lịch sử của tất cả các nhánh.
 
@@ -66,7 +66,7 @@ Ví dụ khi kết hợp các lựa chọn:
 
 Ví dụ bạn đã commit cái gì đó mà bạn không muốn và cuối cùng bạn thực hiện việc hard reset để quay trở lại trạng thái trước đó. Sau đó, bạn nhận ra bạn đã bỏ sót vài thông tin khác trong tiến trình và muốn lấy nó lại, hay ít nhất là xem nó. Đây là lúc ```git reflog``` có thể giúp bạn.
 
-```git log``` cho bạn biết về commit gần nhất, cha của nó, cha của cha nó,... Tuy nhiên, ```git reflog``` là một danh sách các commit mà head đã trỏ tới. Hãy nhớ rằng nó cục bộ với hệ thống của bạn, nó không phải là một phần của repository của bạn và không được bao gồm trong push hay merge.
+```git log``` cho bạn biết về commit gần nhất, cha của nó, cha của cha nó,... Tuy nhiên, ```git reflog``` là một danh sách các commit mà head đã trỏ tới. Hãy nhớ rằng nó là phần nội bộ (local) với hệ thống của bạn, nó không phải là một phần của repository của bạn và không được bao gồm trong push hay merge.
 
 Nếu tôi chạy ```git log```, tôi sẽ lấy được các commit là một phần của repository của tôi:
 
@@ -76,7 +76,7 @@ Tuy nhiên, một ```git reflog``` hiển thị 1 commit (```b1b0ee9 - HEAD@{4}`
 
 ![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946447git-ninja-05.png)
 
-## 6. Stage các phần của các file thay đổi cho Commit 
+## 6. Stage các phần của một file đã thay đổi cho Commit 
 
 Đây nhìn chung là cách làm tốt để tạo các commit hướng chức năng, trong đó, mỗi commit phải đại diện cho một tính năng hoặc một việc sửa lỗi. Tưởng tượng điều gì sẽ xảy ra nếu bạn sửa hai lỗi, hoặc thêm nhiều tính năng mà không commit sự thay đổi. Trong trường hợp này, bạn có thể để các sự thay đổi trong 1 commit đơn lẻ. Nhưng có một cách khác tốt hơn: stage các file riêng lẻ và commit chúng lần lượt.
 
@@ -86,7 +86,7 @@ Ví dụ bạn đã tạo nhiều thay đổi cho một file đơn lẻ và mu�
 git add -p [file_name]
 ```
 
-Hãy cố gắng thực hiện điều tương tự. Tôi đã thêm 3 dòng mới cho ```file_name``` và tôi chỉ muốn dòng thứ nhất và thứ ba xuất hiện trong commit của tôi. Hay xem những gì ```git diff``` hiện thị cho chúng ta.
+Hãy cố gắng thực hiện điều tương tự. Tôi đã thêm 3 dòng mới cho ```file_name``` và tôi chỉ muốn dòng thứ nhất và thứ ba xuất hiện trong commit của tôi. Hay xem những gì ```git diff``` hiển thị cho chúng ta.
 
 ![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946449git-ninja-06.png)
 
@@ -111,7 +111,7 @@ Như bạn có thể thấy, chúng ta đã thêm dòng đầu và dòng thử b
 
 ## 7. Ép nhiều commit
 
-Khi bạn gửi code của bạn để được xem xét lại và tạo một pull request(điều thường xảy ra trong các dự án mã nguồn mở), bạn có thể sẽ phải yêu cầu tạo ra một sự thay đổi trong code của bạn trước khi nó được chấp nhận. Bạn tạo ra sự thay đổi, chỉ khi được yêu cầu và thực hiện lần nữa trong lần xem xét lại tiếp theo. Trước khi bạn biết nó, bạn có vài commit thêm. Lý tưởng nhất là bạn có thể ép chúng lại làm một và sử dụng câu lệnh ```rebase```.
+Khi bạn gửi code của bạn cho việc xem xét (review) và tạo một pull request(điều thường xảy ra trong các dự án mã nguồn mở), bạn có thể sẽ phải yêu cầu tạo ra một sự thay đổi trong code của bạn trước khi nó được chấp nhận. Bạn tạo ra sự thay đổi, chỉ khi được yêu cầu và thực hiện lần nữa trong lần xem xét tiếp theo. Trước khi bạn biết nó, bạn có vài commit thêm. Lý tưởng nhất là bạn có thể ép chúng lại làm một và sử dụng câu lệnh ```rebase```.
 
 ```
 git rebase -i HEAD~[number_of_commits]
@@ -123,7 +123,7 @@ Nếu bạn muốn ép hai commit cuối, câu lệnh bạn chạy như sau:
 git rebase -i HEAD~2
 ```
 
-Khi chạy câu lệnh này, bạn sẽ được dẫn tới một giao diện tương tác nơi liệt kê các commit và sẽ hỏi bạn chọn cái nào để ép. Lý tưởng nhất là bạn ``` chọn ``` commit cuối cùng và ``` ép ``` với các cái cũ.
+Khi chạy câu lệnh này, bạn sẽ được dẫn tới một giao diện tương tác nơi liệt kê các commit và sẽ hỏi bạn chọn cái nào để ép. Lý tưởng nhất là bạn ```pick``` commit cuối cùng và ```squash``` với các cái cũ.
 
 ![](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946455git-ninja-10.png)
 
@@ -133,7 +133,7 @@ Sau đó bạn sẽ được yêu cầu cung cấp nội dung commit cho commit 
 
 ## 8. Cất những thay đổi chưa được commit
 
-Ví dụ bạn đang làm việc trên một tính năng hay một lỗi cụ thể, và bạn bỗng nhiên được yêu cầu mô tả công việc của bạn. Công việc hiện tại của bạn không đủ hoàn thiện để được commit, và bạn không thể đưa ra nhưng mô tả tại stage này ( bạn cũng không trở về các thay đổi). Trong trường hợp này, ```git stash``` sẽ giải cứu bạn. Stash bản chất lấy tất cả các thay đổi của bạn và lưu trữ chúng để sử dụng sau này. Để cất những thay đổi của bạn, bạn chỉ đơn giản chạy lệnh sau.
+Ví dụ bạn đang làm việc trên một tính năng hay một lỗi cụ thể, và bạn bỗng nhiên được yêu cầu mô tả công việc của bạn. Công việc hiện tại của bạn không đủ hoàn thiện để được commit, và bạn không thể đưa ra nhưng mô tả trong giai đoạn này ( bạn cũng không trở về các thay đổi). Trong trường hợp này, ```git stash``` sẽ giải cứu bạn. Stash bản chất lấy tất cả các thay đổi của bạn và lưu trữ chúng để sử dụng sau này. Để cất những thay đổi của bạn, bạn chỉ đơn giản chạy lệnh sau.
 
 ```
 git stash
